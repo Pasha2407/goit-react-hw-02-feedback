@@ -1,9 +1,10 @@
+import css from './section.module.css';
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div>
       {
         (options = options.map(item => (
-          <button key={item} onClick={onLeaveFeedback}>
+          <button className={css.button} key={item} onClick={onLeaveFeedback}>
             {item}
           </button>
         )))

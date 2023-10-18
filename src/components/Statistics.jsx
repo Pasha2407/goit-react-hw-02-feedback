@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
-
-class Statistics extends Component {
-  render() {
-    const { good, neutral, bad, total, avg } = this.props;
-
-    return (
-      <div>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
-        <p>Total: {total}</p>
-        <p>avg: {avg}</p>
-      </div>
-    );
-  }
-}
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+  return (
+    <div>
+      <p style={{ color: 'green' }}>Good: {good}</p>
+      <p style={{ color: '#474747' }}>Neutral: {neutral}</p>
+      <p style={{ color: '#a30d0d' }}>Bad: {bad}</p>
+      <p style={{ color: '#2b74aa' }}>Total: {total}</p>
+      <p style={{ color: '#21734d' }}>
+        Positive Feedback: {positivePercentage}%
+      </p>
+    </div>
+  );
+};
 
 export default Statistics;

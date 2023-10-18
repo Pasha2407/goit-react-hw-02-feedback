@@ -23,7 +23,8 @@ export class App extends Component {
 
   render() {
     const total = this.state.good + this.state.neutral + this.state.bad;
-    const positivePercentage = (this.state.good * 100) / total;
+    const positivePercentage =
+      (this.state.good * 100) / (this.state.good + this.state.bad);
     return (
       <div>
         <Section title="Please leave feedback" children>

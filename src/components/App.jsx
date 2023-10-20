@@ -3,6 +3,7 @@ import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 import Notification from './Notification';
+import css from './section.module.css';
 export class App extends Component {
   state = {
     good: 0,
@@ -23,16 +24,16 @@ export class App extends Component {
 
   render() {
     const total = this.state.good + this.state.neutral + this.state.bad;
-    const positivePercentage =
-      (this.state.good * 100) / (this.state.good + this.state.bad);
+    const positivePercentage = (this.state.good * 100) / total;
     return (
-      <div>
+      <div className={css.main}>
         <Section title="Please leave feedback" children>
           <FeedbackOptions
             options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
           />
-          <h2>Statistics</h2>
+        </Section>
+        <Section title="Statistics" children>
           {total > 0 ? (
             <Statistics
               good={this.state.good}
